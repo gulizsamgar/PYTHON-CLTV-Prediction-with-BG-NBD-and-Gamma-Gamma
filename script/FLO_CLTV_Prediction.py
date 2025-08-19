@@ -145,19 +145,19 @@ bgf.fit(cltv_df['frequency'],
         cltv_df['recency_cltv_weekly'],
         cltv_df['T_weekly'])
 
-# 3 ay içerisinde müşterilerden beklenen satın almaları tahmin ediniz ve exp_sales_3_month olarak cltv dataframe'ine ekleyiniz.
+#1.a.  3 ay içerisinde müşterilerden beklenen satın almaları tahmin ediniz ve exp_sales_3_month olarak cltv dataframe'ine ekleyiniz.
 cltv_df["exp_sales_3_month"] = bgf.predict(4*3,
                                        cltv_df['frequency'],
                                        cltv_df['recency_cltv_weekly'],
                                        cltv_df['T_weekly'])
 
-# 6 ay içerisinde müşterilerden beklenen satın almaları tahmin ediniz ve exp_sales_6_month olarak cltv dataframe'ine ekleyiniz.
+#1.b.  6 ay içerisinde müşterilerden beklenen satın almaları tahmin ediniz ve exp_sales_6_month olarak cltv dataframe'ine ekleyiniz.
 cltv_df["exp_sales_6_month"] = bgf.predict(4*6,
                                        cltv_df['frequency'],
                                        cltv_df['recency_cltv_weekly'],
                                        cltv_df['T_weekly'])
 
-# 3. ve 6.aydaki en çok satın alım gerçekleştirecek 10 kişiyi inceleyeniz. Fark var mı?
+#1.c.  3. ve 6.aydaki en çok satın alım gerçekleştirecek 10 kişiyi inceleyeniz. Fark var mı?
 cltv_df.sort_values("exp_sales_3_month",ascending=False)[:10]
 
 cltv_df.sort_values("exp_sales_6_month",ascending=False)[:10]
@@ -171,6 +171,9 @@ cltv_df["exp_average_value"] = ggf.conditional_expected_average_profit(cltv_df['
 cltv_df.head()
 
 # 3. 6 aylık CLTV hesaplayınız ve cltv ismiyle dataframe'e ekleyiniz.
+
+# a. Hesapladığınız cltv değerlerini standarlaştırıp  değişken oluşturunuz.
+ 
 cltv = ggf.customer_lifetime_value(bgf,
                                    cltv_df['frequency'],
                                    cltv_df['recency_cltv_weekly'],
@@ -182,8 +185,7 @@ cltv = ggf.customer_lifetime_value(bgf,
 cltv_df["cltv"] = cltv
 
 
-
-# CLTV değeri en yüksek 20 kişiyi gözlemleyiniz.
+# b. Cltv değeri en yüksek 20 kişiyi gözlemleyiniz.
 cltv_df.sort_values("cltv",ascending=False)[:20]
 
 ###############################################################
