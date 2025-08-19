@@ -76,4 +76,4 @@ Kodları çalıştırmak için Python 3.x yüklü bir ortamda Google Colab veya 
 
 ## Detaylı Açıklamalar
 
-Her görevin detaylı açıklamaları ve kod çıktıları için projenin **[`Jupyter Not Defteri dosyasına (.ipynb)`](FLO_RFM_analysis.ipynb)** göz atabilirsiniz.
+Her görevin detaylı açıklamaları ve kod çıktıları için projenin **[`Jupyter Not Defteri dosyasına (.ipynb)`](FLO_CLTV_Prediction.ipynb)** göz atabilirsiniz.
